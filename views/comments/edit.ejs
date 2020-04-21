@@ -1,0 +1,31 @@
+<%- include ("../partials/header") %>
+
+<div class="container">
+	<div class="row">
+		<div class = "col-md-12" style= "width: 30% margin: 25 px auto">
+			
+			<h1 style = "text-align: center">	Edytuj komentarz </h1>
+
+			<form action = "/bieganie/<%= bieganie_id %>/comments/<%= comment._id %>?_method=PUT"  method = "POST" >
+
+			<div class="form-group">
+				<input class = "form-control" type="text" name="comment[text]" value="<%= comment.text %>">
+				
+				<input class= "form-control" type="text" name="comment[image]" value="<%= comment.image %>">
+
+			</div>
+			
+			<a href = "/bieganie">Wracamy</a>
+
+			<button class ="btn btn-primary btn-lg btn-block">
+				Wyślij!
+			</button>
+		</form>
+			
+		</div>
+		
+
+	</div>
+</div>
+
+<%- include ("../partials/footer") %>

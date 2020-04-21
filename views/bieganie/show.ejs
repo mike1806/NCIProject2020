@@ -1,0 +1,98 @@
+<%- include ("../partials/header") %>
+<div class = "container">
+	<div class = "row">
+		<div class = "col-md-3">
+			<p class = "lead">
+				Biegacz i Zwiedzacz
+			</p>
+			<div class = "list-group">
+				<li class = "list-group-item active">
+				
+					<div id="container">
+						<h1>To-Do List <i class="fa fa-plus"></i></h1>
+						<input type="text" placeholder="Add New Todo">
+
+							<ul>
+								<li><span><i class="fa fa-trash"></i></span> L1</li>
+								<li><span><i class="fa fa-trash"></i></span> L2</li>
+								<li><span><i class="fa fa-trash"></i></span> L3</li>
+								</ul>
+			</div></li>
+				<li class = "list-group-item">
+				
+				</li>
+				<li class = "list-group-item">D3</li>
+				<li class = "list-group-item">D4</li>
+				<li class = "list-group-item">D5<i class="google icon"></i>dssdsd</li>
+				<i class="google icon">sdsdds</i>
+				<svg class="bi bi-chevron-right" width="32" height="32" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 					01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg>
+			</div>
+		</div>
+		<div class = "col-md-9" >
+			<div class = "thumbnail">
+				<img style = "width: 100%" class = "img-responsive" src= "<%= bieganie.image %>">
+				<div class = "caption-full">
+					<h4 class = "pull-right">
+						150 euro / rocznie
+					</h4>
+					<h4 class = "pull-left">
+						<a><%= bieganie.name %></a>	
+					</h4>
+					<p>
+						<%= bieganie.description %>
+					</p>
+					<em><p> Post dodany przez: 
+						<a href="/profile/<%= bieganie.author.id %>">, <%= bieganie.author.username %>, <%= moment(bieganie.createdAt).fromNow() %></a>
+					</p></em>
+					<% if(currentUser && bieganie.author.id.equals(currentUser.id)){ %>
+						<a class = "btn btn-warning" href = "/bieganie/<%= bieganie._id %>/edit">Edytuj post</a>
+						<form class = "acceptDelete" action="/bieganie/<%= bieganie._id %>?_method=DELETE" method="POST">
+							<button class = "btn btn-danger">
+								Usuń post
+							</button>
+						</form>
+					<% } %>
+					
+					<div class = "well">
+				<div class = "text-right">
+					<h1>
+					this is Sparta
+					</h1>
+					<a class = "btn btn-success" href = "/bieganie/<%= bieganie.id %>/comments/new"> Skomentuj post</a>
+				<hr>
+				<% bieganie.comments.forEach(function(comment){ %>
+				<div class = "row" style = "background-color: grey">
+					<div class = "col-md-12">
+						<%= comment.author.username %>
+						<span class = "pull-right"><%= moment(comment.createdAt).fromNow() %></span>
+						<p>
+						<%= comment.text %>
+						</p>	
+				<% if(currentUser && comment.author.id.equals(currentUser.id)){ %>
+						<a class= "btn btn-xs btn-warning" href= "/bieganie/<%= bieganie._id %>/comments/<%= comment._id %>/edit">Edytuj komentarz</a>
+						<form class = "acceptDelete" action="/bieganie/<%= bieganie._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+						<input type="submit" class="btn btn-xs btn-danger" value="Usuń post">
+					</form>
+				<% } %>
+				</div>
+
+				</div>	
+				</div>
+				
+					
+				</div>
+				
+				
+			</div>
+			<% }) %>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+
+<%- include ("../partials/footer") %>

@@ -1,0 +1,69 @@
+body{
+  background: -webkit-linear-gradient(90deg, #05A9D1 10%,  #011930 90% ); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #05A9D1 10%,  #011930 90% ); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #05A9D1 10%,  #011930 90% ); /* IE10 */
+  background:      -o-linear-gradient(90deg, #05A9D1 10%, #011930 90% ); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #05A9D1 10%,  #011930 90% ); /* W3C */
+}
+
+
+img.pimage {
+    width: 160px;
+}
+
+a.pa {
+    display: inline-block;
+    height: 150px;
+}
+
+.row.products .p {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+img.spi {
+    width: 100%;
+}
+
+ul.gallery li {
+    display: inline-block;
+    margin: 25px;
+    list-style: none;
+}
+
+img.size {
+    width: 110px;
+	border: blue; 
+}
+
+table.alignmiddle td {
+    vertical-align: middle !important;
+}
+
+.pp {
+    position: absolute;
+    left: -3000px;
+}
+
+.ajaxbg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255, .8);
+    z-index: 2;
+    display: none;
+}
+
+.ajaxinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.alert-error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}

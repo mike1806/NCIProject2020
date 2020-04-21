@@ -1,0 +1,117 @@
+<%- include('../partials/header_shop') %>
+
+
+<h2 class="page-title">Revise item</h2>
+<a href="/shop/admin/items" class="btn btn-primary">Back to items</a>
+<br><br>
+
+<form method="post" action="/shop/admin/items/edit-item/<%= id %>" enctype="multipart/form-data">
+    
+    <div class="form-group">
+        <label for="">Name</label>
+        <input type="text" class="form-control" name="item" value="<%= item %>" placeholder="Item">
+    </div>
+    
+    <div class="form-group">
+        <label for="">Info</label>
+        <textarea name="info" class="form-control" cols="30" rows="10" placeholder="Info"><%= info %></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label for="">Type</label>
+        <select name="category" class="form-control">
+            <% categories.forEach(function(cat){ %>
+                <option value="<%= cat.slug %>"
+                <% if (cat.slug == category) { %>
+                selected="selected"
+                <% } %>        
+                ><%= cat.title %></option>
+            <% }); %>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="">Cost</label>
+        <input type="text" class="form-control" name="cost" value="<%= cost %>" placeholder="Cost">
+    </div>
+    
+    <div class="form-group">
+        <label for="">Image</label>
+        <p>
+            <% if (image == "") { %>
+            <img id="noimage" src="/images/noimage.png" alt="">
+            <% } else {%>
+            <img id="noimage" src="/product_images/<%= id %>/<%= image %>" alt="">
+            <% } %>
+        </p>
+    </div>
+    
+    <div class="form-group">
+        <label for="">Upload Image</label>
+        <input type="file" class="form-control" name="image" id="img">
+        <img src="#" id="imgPreslug" alt="">
+    </div>
+    
+    <input type="hidden" name="pimage" value="<%= image %>">
+    <button class="btn btn-default">Confirm</button>
+</form>
+
+<hr>
+<h3 class="page-header">Photos</h3>
+
+<ul class="gallery">
+    <% galleryImages.forEach(function(image){ %>
+    <% if (image != "thumbs") { %>
+    <li>
+        <img src="/product_images/<%= id %>/gallery/thumbs/<%= image %>" alt="">&nbsp;
+        <a class="acceptDelete" href="/admin/items/delete-image/<%= image %>?id=<%= id %>">delete</a>
+    </li>
+    <% } %>
+    <% }); %>
+</ul>
+<!--space to upload more images to photo gallery-->
+<br><br>
+<form action="/shop/admin/items/product-gallery/<%= id %>" method="post" enctype="multipart/form-data" class="dropzone" id="dropzoneForm">
+    <div class="fallback">
+        <input type="file" name="file" multiple>
+        <input type="submit" value="Upload">
+    </div>
+</form>
+
+<!--dropzone references-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/basic.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/dropzone.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/dropzone.js"></script>
+<script>
+    
+    // Preview image
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function(e) {
+                $("#imgPreview").attr('src', e.target.result).width(180).height(180);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#img").change(function() {
+        readURL(this);
+    });
+    
+    // to upload more photos
+    Dropzone.options.dropzoneForm = {
+        acceptedFiles: "image/*",
+        init: function() {
+            this.on("queuecomplete", function(file) {
+               setTimeout(function() {
+                location.reload()
+                }, 1000); 
+            });
+        }
+    }
+    
+</script>
+<%- include('../partials/footer_shop') %>

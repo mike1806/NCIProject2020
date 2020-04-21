@@ -1,0 +1,17 @@
+<%- include('../partials/header_shop') %>
+
+<h2 class="page-title">Edit Type of Item</h2>
+<a href="/shop/admin/types" class="btn btn-primary">Back to Types</a>
+<br><br>
+
+<form method="post" action="/shop/admin/type/edit-type/<%= id %>">
+    
+    <div class="form-group">
+        <label for="">Item</label>
+        <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="Title">
+    </div>
+
+    <button class="btn btn-default">Confirm</button>
+</form>
+
+<%- include('../partials/footer_shop') %>

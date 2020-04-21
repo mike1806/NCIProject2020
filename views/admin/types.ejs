@@ -1,0 +1,29 @@
+<%- include('../partials/adminheader') %>
+
+<h2 class="page-title">Item`s types</h2>
+<a href="/shop/admin/types/add-type" class="btn btn-primary">New Type</a>
+<a href="/start/shop" class="btn btn-info">Back to shop</a>
+
+<br><br>
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th>Type of item</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% types.forEach(function(cat){ %>
+        <tr>
+            <td><%= cat.title %></td>
+            <td><a href="/shop/admin/types/edit-type/<%= cat._id %>">Edit type</a></td>
+            <td><a class="confirmDeletion" href="/shop/admin/types/delete-type/<%= cat._id %>">Delete type</a></td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
+
+<%- include('../partials/adminfooter') %>

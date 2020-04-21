@@ -1,0 +1,29 @@
+<%- include('../partials/adminheader') %>
+
+<h2 class="page-title">Add a site</h2>
+<a href="/shop/admin/sites" class="btn btn-primary">Back to sites</a>
+<br><br>
+
+<form method="post" action="/shop/admin/sites/add-site">
+    
+    <div class="form-group">
+        <label for="">Site`s name</label>
+        <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="Title">
+    </div>
+    
+    <div class="form-group">
+        <label for="">Views</label>
+        <input type="text" class="form-control" name="slug" value="<%= slug %>" placeholder="slug">
+    </div>
+    
+    <div class="form-group">
+        <label for="">Content</label>
+	<!--content to be displayed when user will click on navbar menu in shopping section-->
+        <textarea name="content" class="form-control" id="ta" cols="30" rows="10" placeholder="Content"><%= content %></textarea>
+    </div>
+    
+    <button class="btn btn-default">Add new site</button>
+</form>
+
+
+<%- include('../partials/adminfooter') %>

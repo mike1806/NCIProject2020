@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>B/Z</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/style/start_site.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+    </head>
+    <body>
+    
+    <div class="container">
+        <% if(message && message.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= message %>
+            </div>
+        <% } %>
+        <% if(move && move.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= move %>
+            </div>
+        <% } %>
+    </div>
+    
+    <div id="start-header">
+ 		<h1>Witaj na oficjalnej stronie Biegacza and Zwiedzacza!</h1>
+		<a href="/bieganie" class="btn btn-lg btn-info">Biegnij dalej...Run for more</a>
+    </div>
+    
+    <ul class="styleslide">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+<%- include ("./partials/footer") %>
+

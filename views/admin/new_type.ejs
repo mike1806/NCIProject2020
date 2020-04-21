@@ -1,0 +1,19 @@
+<%- include('../partials/adminheader') %>
+
+<h2 class="page-title">Add new type</h2>
+<a href="/shop/admin/types" class="btn btn-primary">Back to all types</a>
+<br><br>
+
+<form method="post" action="/shop/admin/types/add-type">
+    
+    <div class="form-group">
+        <label for="">Item</label>
+        <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="Title">
+    </div>
+    
+    <button class="btn btn-default">Confirm new type</button>
+</form>
+
+
+
+<%- include('../partials/adminfooter') %>

@@ -1,0 +1,29 @@
+<%- include('./partials/header_shop') %>
+
+<div class="row products">
+    
+	<div class="row text-center" style="display:flex; flex-wrap: wrap;" id="campground-grid">
+    <% products.forEach(function(p){ %>
+            <div class="col-md-4 col-sm-2">
+				<div class="thumbnail list-group-item">
+					
+				
+                <a  href="/shop/items/<%= p.category %>/<%= p.slug %>">
+                    <img class="pimage" src="/product_images/<%= p.id %>/<%= p.image %>" alt="">
+                </a>
+				<div class="caption">
+				<h3 style="color:grey"><%= p.item %></h3>
+                <h4 style="color:grey"><%= parseFloat(p.cost).toFixed(2) %>€</h4>
+                <a style="font-size:15px" href="/shop/items/<%= p.category %>/<%= p.slug %>">More info of item</a>
+				
+				</div>
+						
+				</div>
+	
+			</div>
+	       
+        <% }); %>
+    
+</div>
+
+<%- include('./partials/footer_shop') %>

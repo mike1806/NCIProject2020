@@ -1,0 +1,18 @@
+<%- include ("partials/header") %>
+
+
+<h1 style = "text-align: center">Logging to service</h1>
+
+<div style = "width:40%; margin: 30px auto">
+
+<form action = "/login" method= "POST">
+	<input class = "form-control" type= "text" name= "username", placeholder= "username"> 
+	<input class = "form-control" type= "password" name= "password", placeholder= "password"> 
+	<input class = "form-control" type= "text" name= "AdminPass", placeholder= "admin pass"> 
+	
+	
+	<input class = "form-control"  type="submit" value="login">
+	<a href="/bieganie" class="form-control btn btn-lg btn-warning"> Back to Main Menu </a>
+</form>
+
+<%- include ("partials/footer") %>

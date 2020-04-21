@@ -1,0 +1,35 @@
+<%- include ("../partials/header") %>
+
+<div class="container">
+	<div class="row">
+		
+		<h1 style = "text-align: center">	Edit Post <%= bieganie.name %> post  </h1>
+		
+		<div style = "width: 30%, margin: 25px auto">
+
+		<form action="/bieganie/<%= bieganie._id %>?_method=PUT"  method="POST" >
+			
+			<div class = "form group"> 
+				<input class= "form-control" type="text" name="post[name]" value="<%= bieganie.name %>">
+			</div>
+
+			<div class = "form group"> 
+				<input class= "form-control" type="text" name="post[image]" value="<%= bieganie.image %>">
+			</div>
+
+			<div class = "form group"> 
+				<textarea class= "form-control" type="text" name="post[description]" value="<%= bieganie.description %>"></textarea>
+     		</div>
+
+			
+			<a href = "/bieganie">Back to Menu</a>
+	
+		
+			<button class ="btn btn-primary btn-lg">Confirm changes</button>
+			
+		</form>
+
+	</div>
+</div>
+
+<%- include ("../partials/footer") %>

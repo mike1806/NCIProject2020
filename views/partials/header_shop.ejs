@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Sklep</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
+        <link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/style/center.css">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script type="text/javascript" src="models/JQuery/jquery-2.1.4.min.js"></script>
+ 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <div class="ajaxbg">
+			<!--information only to appears when user click on buy button-->
+            <div class="ajaxinner">
+                <h3>Please wait Paypal window is loading...</h3>
+                <img src="/images/ajax-loader.gif" alt=""/>
+            </div>
+        </div>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Sklep Biegacz and Zwiedzacz</a>
+                    </div>
+				
+                <div id="navbar" class="collapse navbar-collapse">
+					<!--display sites on shopping area navbar accordingly to admin settings--> 
+                    <ul style="font-size:20px" class="nav navbar-nav nav nav-tabs">
+                        <% pages.forEach(function(page){ %>
+                        <% if (page.slug == "home") { %>
+                        <li><a href="/"><%= page.title %></a></li>
+                        <% } else {%>
+                        <li><a href="/<%= page.slug %>"><%= page.title %></a></li>
+                        <% } %>
+                        <% }); %>
+                    </ul>
+					
+					<!--count how many items are in list-->
+					<div id="navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/shop/list/sum">My Shopping List (
+                                <% if (typeof list !== "undefined") { %>
+                                <%= list.length %>
+                                <% } else {%>
+                                0
+                                <% } %>
+                            )</a>
+                        </li>
+						<!--check condition-->
+                        <% if(!currentUser){ %>
+    					 <li>
+						  <a  href="/login">Log-in</a>
+     					 </li>
+          				  <li >
+     						   <a  href="/registrar">Register</a>
+    						  </li>
+						<!--display only when logged-in-->
+       					 <% } else { %>
+							<em><li class="nav-item"><a href= "£" >Logged as <%= currentUser.username %> </a></li></em>
+							<em><li class="nav-item"><a href= "/shop/admin/sites" >Admin Control Panel </a></li></em>
+						  <li>
+      					 	 <a href="/logout">Log-out</a>
+    						  </li>
+						  <% } %>
+                        
+					
+                    </ul>
+					</div>
+             		<div id="navbar" class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+			  <li class="nav-item">
+		<a href="https://www.facebook.com/biegaczizwiedzacz/" class="fa fa-facebook"></a>
+     </li>
+		
+	
+			  
+			  <li class="nav-item">
+		<a href="https://www.instagram.com/biegacz_i_zwiedzacz/" class="fa fa-instagram"></a>
+     </li>
+		
+			
+	<li class="nav-item">
+		<a href="/registrar" class="fa fa-twitter"></a>
+    </li>
+		
+	<li class="nav-item">
+		<a href="/registrar" class="fa fa-android"></a>
+     </li>
+		
+	<li class="nav-item">
+		<a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fjoin.skype.com%2Finvite%2FoectX2mjFLdF%3Ffbclid%3DIwAR1ugVE2tkAvOE5PvW5Ya7SgTZwwHxrTKkSJS3vQtfh0R1Fpc7IFS7mQXcA&h=AT38lBXkkjZHUotvb5cjF00idasOUhWY9K7VIxFJf40OAziJee7Hao8KNBjrmB7G28U-HfdTHpbRR3ThuvR0_zkkeHWsQGf5LLuZ_USo72KmpyEzkf7WHH2TpFkocJsHsqiQxQ" class="fa fa-skype"></a>
+     </li>
+		
+			
+	<li class="nav-item">
+		<a href="https://www.youtube.com/channel/UCSzr-sWq8lqrXBV_UdGx4rg?view_as=subscriber&fbclid=IwAR0Vi3FoAJwWgU3mumF7_WghNes_TMk7CAOeK3JoDiD9p8XcBMsjpbtULrY" class="fa fa-youtube"></a>
+    </li>
+		
+	<li class="nav-item">
+		<a href="/registrar" class="fa fa-linkedin"></a>
+     </li>
+		
+	<li class="nav-item">
+		<a href="/registrar" class="fa fa-google"></a>
+     </li>
+					<li class="nav-item">
+		<a href="/registrar" class="fa fa-apple"></a>
+     </li>
+  			</ul>
+			</div>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+    
+        <div class="container">
+            <%- messages('messages', locals) %>
+            
+            <% if (errors) {%>
+                <% errors.forEach(function(error) { %>
+                <div class="alert alert-danger">
+                    <%= error.msg %>
+                </div>
+                <% });%>
+            <% }%>
+    
+			<!--categories of products displayed on left side of main screen of shop section-->
+            <div class="row">
+                <div class="col-xs-12 col-md-3">
+                    <h3>Types of Items in Online Shop</h3>
+					<ul style="font-size:17px" class="list-group">
+                        <li class="list-group-item"><a href="/shop/items">All Items in Shop</a></li>
+                        <% categories.forEach(function(c){ %>
+                            <li class="list-group-item"><a href="/shop/items/<%= c.slug %>"><%= c.title %></a></li>
+                        <% }); %>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-md-1"></div>
+                <div class="col-xs-12 col-md-8">
+                    
+                
+
+                
+
+
+
+
+

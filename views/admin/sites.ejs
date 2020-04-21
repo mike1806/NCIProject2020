@@ -1,0 +1,33 @@
+<%- include('../partials/adminheader') %>
+
+<h2 class="page-title">Sites</h2>
+<a href="/shop/admin/sites/add-site" class="btn btn-primary">Add site</a>
+<a href="/start/shop" class="btn btn-info">Back to shop</a>
+<br><br>
+<table class="table table-striped sorting">
+
+    <thead>
+        <tr class="home">
+            <th>Label</th>
+            <th>Edition</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% pages.forEach(function(page){ %>
+        <tr id="id_<%= page._id %>" class="<%= page.slug %>">
+            <td><%= page.title %></td>
+            <td><a href="/shop/admin/sites/edit-site/<%= page._id %>">Edit</a></td>
+            <% if (page.slug == "home") { %>
+            <td></td>
+            <% }  else {%>
+            <td><a class="acceptDelete" href="/shop/admin/sites/delete-site/<%= page._id %>">Delete</a></td>
+            <% }%>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
+	
+
+
+<%- include('../partials/adminfooter') %>

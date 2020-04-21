@@ -1,0 +1,32 @@
+<%- include ("../partials/header") %>
+
+<div class="container">
+	<div class="row">
+		<div style= "width: 30% margin: 25 px auto">
+			
+			<h1 style = "text-align: center">	Add new commentary <%= bieganie.name %>  </h1>
+
+			<form action = "/bieganie/<%= bieganie._id %>/comments"  method = "POST" >
+
+			<div class="form-group">
+				<textarea class = "form-control" id="ta" type="text" name="comment[text]" placeholder="text"></textarea>
+				<input class= "form-control" type="text" name="image" placeholder="image url">
+
+			</div>
+			<button class ="btn btn-info btn-lg"> 
+				<a href = "/bieganie">Back to post</a>
+			</button>
+			
+
+			<button class ="btn btn-primary btn-lg">
+				Send
+			</button>
+		</form>
+			
+		</div>
+		
+
+	</div>
+</div>
+
+<%- include ("../partials/footer") %>

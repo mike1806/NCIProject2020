@@ -1,0 +1,53 @@
+<%- include ("../partials/header") %>
+
+<% if(currentUser && currentUser.isAdmin){ %>
+	<h1>
+		Jesteś adminem!
+</h1>
+<% } %>
+
+<div class="container">
+	
+	<header class = "bg-dark text-white jumbotron" style= background-color: #94C9D3>
+		<div class="container">
+				
+		  <div>
+            <img  src="https://scontent.fdub3-1.fna.fbcdn.net/v/t1.0-9/67774182_793308151071485_7441394439366377472_n.jpg?_nc_cat=106&_nc_sid=dd9801&_nc_ohc=l8ctf3y8UKYAX9o2ApL&_nc_ht=scontent.fdub3-1.fna&oh=205d0f6f7fd824e90bcf161fd26b3fba&oe=5EA7E1B4" alt="Second slide" width="1000" height="430">
+			
+        </div>
+			
+			
+		<h1 style = "text-align: center, text-size: 100px">- Biegacz and Zwiedzacz Website -</h1>
+		<p style = "text-align: center">
+			W życiu natrafisz na wiele gór ⛰️. To wtedy dochodzi do selekcji między tymi którzy idą po marzenia bez względu na przeciwności losu 💪 a tymi którzy wybierają najłatwiejszą opcje i poddają 			się zbyt łatwo⛔👎. Ja Ci mówię:🗣️ że stać Cię na dużo więcej niż myślisz, więc idź i bierz co Twoje bo inaczej będziesz patrzył jak przestaje być Twoje 
+		</p>
+			
+		<a class= "btn btn-primary btn-lg" href = "/bieganie/nowy">Dodaj nowy obrazek i opis</a>
+
+			<div class ="ui button">
+		
+	
+	</div>
+		
+	</header>
+
+	<div class="row text-center" style="display:flex; flex-wrap: wrap;" id="campground-grid">
+		<% bieganie.forEach(function(bieganie){ %>
+			<div class="col-md-3 col-sm-2">
+				<div class="thumbnail list-group-item">
+					<img  src = "<%= (bieganie.image) %>">
+					<div class="caption">
+						<h4><%= bieganie.name %></h4>
+					</div>
+					<p>
+						<a href="/bieganie/<%= bieganie._id %>" class="btn btn-primary">More info</a>
+					</p>
+				</div>
+				
+			</div>
+		<% }) %>
+	</div>
+	
+
+
+<%- include ("../partials/footer") %>

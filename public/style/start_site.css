@@ -1,0 +1,77 @@
+body {
+  background-color: #000;
+}
+
+#start-header {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  padding-top: 40vh;
+}
+
+#start-header h1 {
+  color: #fff;
+}
+
+.styleslide { 
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.styleslide li { 
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 0;
+  animation: imageAnimation 50s linear infinite; 
+}
+
+.styleslide li:nth-child(1) { 
+  background-image: url(https://scontent.fdub3-1.fna.fbcdn.net/v/t1.0-9/87575368_950258928709739_3106507131747041280_o.jpg?_nc_cat=111&_nc_sid=8024bb&_nc_ohc=u75sQ_D-oWsAX8RXNm_&_nc_ht=scontent.fdub3-1.fna&oh=270c0d37aad63ed8070eefdebe935196&oe=5EA7DBC9) 
+}
+.styleslide li:nth-child(2) { 
+  background-image: url(https://scontent.fdub3-1.fna.fbcdn.net/v/t1.0-9/35229211_526277921107844_4432667963304181760_o.jpg?_nc_cat=103&_nc_sid=8024bb&_nc_ohc=UHwMZx3DBmgAX_U40O5&_nc_ht=scontent.fdub3-1.fna&oh=29bc2d38040f75f1d0374644210add14&oe=5EA5A4AE);
+  animation-delay: 10s; 
+}
+.styleslide li:nth-child(3) { 
+  background-image: url(https://scontent.fdub3-1.fna.fbcdn.net/v/t1.0-9/88958651_952946268441005_5506666201146720256_o.jpg?_nc_cat=110&_nc_sid=110474&_nc_ohc=KSnLh7Hxb8kAX9FvMQS&_nc_ht=scontent.fdub3-1.fna&oh=0cd96500a63f1d3664f0891430ecbb47&oe=5EA96FD2);
+  animation-delay: 20s; 
+}
+.styleslide li:nth-child(4) { 
+  background-image: url(https://scontent.fdub3-1.fna.fbcdn.net/v/t1.0-9/49528562_663460060722962_1118878361163137024_o.jpg?_nc_cat=104&_nc_sid=110474&_nc_ohc=I9wLEtA8XqMAX_mg40W&_nc_ht=scontent.fdub3-1.fna&oh=b33cc99c8e410502c9e47fdec33d0ed8&oe=5EA857C5);
+  animation-delay: 30s; 
+}
+.styleslide li:nth-child(5) { 
+  background-image: url(https://scontent.fdub3-1.fna.fbcdn.net/v/t1.0-9/51128991_679140679154900_8472503249755176960_o.jpg?_nc_cat=111&_nc_sid=8024bb&_nc_ohc=pL4suJlG2M0AX8G0Fv4&_nc_ht=scontent.fdub3-1.fna&oh=478df3011f7a096a9faf1349ee7503cc&oe=5EA79BEB);
+  animation-delay: 40s; 
+}
+
+@keyframes imageAnimation { 
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
+}

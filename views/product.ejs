@@ -1,0 +1,36 @@
+<%- include('./partials/header_shop') %>
+
+<div class="row">
+    
+	
+    <h1 class="page-header"><%= p.item %></h1>
+    
+    <div class="col-xs-12 col-md-5">
+        <img class="spi" src="/product_images/<%= p.id %>/<%= p.image %>" alt="">
+        <br>
+    </div>
+    <div class="col-xs-12 col-md-7">
+        <p style="text-align: justify; color:lightsteelblue" ><%= p.info %></p>
+        <p style="text-align: justify; color:#d8bfd8; font-size:35px">€ <%= parseFloat(p.cost).toFixed(2) %></p>
+  
+        <p style="font-size:30px" ><a href="/shop/list/add/<%= p.slug %>">Add to Shopping List</a></p>
+		<a href="/shop/products" class="btn btn-info">Back to other Items</a>
+      
+    </div>
+		
+
+    <div class="col-xs-12">
+        <ul class="gallery">
+            <% galleryImages.forEach(function(image){ %>
+            <% if (image != "thumbs") { %>
+            <li>
+                <a data-fancybox="gallery" href="/product_images/<%= p.id %>/gallery/<%= image %>">
+                    <img src="/product_images/<%= p.id %>/gallery/thumbs/<%= image %>" alt="">
+                </a>
+            </li>
+            <% } %>
+            <% }); %>
+        </ul>
+    </div>
+</div>
+<%- include('./partials/footer_shop') %>
