@@ -85,10 +85,10 @@ router.post("/bieganieAndroid", function(req, res){
 	var name = req.body.name;
 	var image = req.body.image;
 	var desc = req.body.description;
-	var author = {
-		id: req.user._id,
-		username: req.user.username,
-	}
+	//var author = {
+	//	id: req.user._id,
+//		username: req.user.username,
+//	}
 	
 	var newBieganie = {name: name, image: image, description: desc}
 	 //create a new name + image and save to MongoDB

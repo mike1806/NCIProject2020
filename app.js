@@ -24,10 +24,11 @@ var authorizationRoutes = require("./routes/authorisation");
 //var storeRoutes = require("./routes/admin_pages");
 
 
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://Mike:Pepsi123456@bieg-j6jhx.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false}).then(function(err){
-	console.log("DB connected!");
-});
+//mongoose.Promise = global.Promise;
+//mongoose.connect('mongodb+srv://Mike:Pepsi123456@bieg-j6jhx.mongodb.net/test?retryWrites=true&w=majority', 
+//{ useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false}).then(function(err){
+//	console.log("DB connected!");
+//});
 
 //shop settings
 app.set("views", path.join(__dirname, "views"));
