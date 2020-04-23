@@ -12,6 +12,7 @@ var Override = require("method-override");
 var flash = require("connect-flash");
 var path = require("path");
 //var Sklep = require("./models/shop");
+//var favicon = require('serve-favicon')
 var expressValidator = require("express-validator");
 var fileUpload = require('express-fileupload');
 var isImage = require('is-image');
@@ -126,11 +127,11 @@ app.use(expressValidator({
     }
 }));
 
-app.get('*', function(req,res,next) {
-  res.locals.list = req.session.list;
-  res.locals.user = req.user || null;
-  next();
-});
+//app.get('*', function(req,res,next) {
+//  res.locals.list = req.session.list;
+//  res.locals.user = req.user || null;
+//  next();
+//});
 
 //add flash messages
 app.use(require('connect-flash')());
