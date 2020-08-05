@@ -17,7 +17,7 @@
     "cookie-parser": "^1.4.5",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
-    "express-fileupload": "^1.1.7-alpha.2",
+    "express-fileupload": "^1.1.9",
     "express-handlebars": "^4.0.3",
     "express-messages": "^1.0.1",
     "express-session": "^1.17.0",
